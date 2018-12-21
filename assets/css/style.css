@@ -73,3 +73,8 @@ body {
 .summary-correct {
     margin-top: 40px;
 } 
+
+.cat-images {
+    width: 60%;
+    height: 60%;
+}
