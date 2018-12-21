@@ -3,11 +3,11 @@
     // Variables
     var startScreen;
     var gameHTML;
-    var counter = 30;
-    var questionArray = ["What is a group of cats called?", "What is the capital of Liberia?", "What is the capital of Taiwan?", "What is the capital of Japan?", "What is the capital of China?", "What is the capital of Turkey?", "What is the capital of Colombia?", "What is the capital of India?"];
-    var answerArray = [["Shrewdness", "Clowder", "Herd", "Gang"], ["Arthington","Monrovia","Tuzon","Marshall"], ["Tainan City", "Taichung", "Taipei", "Hsinchu"], ["Kyoto","Hiroshima","Tokyo","Osaka"], ["Hong Kong", "Macau", "Shanghai", "Beijing"], ["Ankara","Istanbul","Antalya","Bursa"], ["Medellin", "Bogota", "Cartagena", "Cali"], ["Mumbai","Hyderabad","Bangalore","New Delhi"]];
-    var imageArray = ["<img class='center-block img-right' src='../images/clowder.jpg'>", "<img class='center-block img-right' src='img/liberia.png'>", "<img class='center-block img-right' src='img/taiwan.png'>", "<img class='center-block img-right' src='img/japan.png'>", "<img class='center-block img-right' src='img/china.png'>", "<img class='center-block img-right' src='img/turkey.png'>", "<img class='center-block img-right' src='img/colombia.png'>", "<img class='center-block img-right' src='img/india.png'>"];
-    var correctAnswers = ["B. Clowder", "B. Monrovia", "C. Taipei", "C. Tokyo", "D. Beijing", "A. Ankara", "B. Bogota", "D. New Delhi"];
+    var counter = 15;
+    var questionArray = ["What is a group of cats called?", "How similar is a cat's brain to a human's brain?", "About how many different sounds can a cat make?", "What would Egyptian family members do when a family cat died? (Other than mummify the cat of course!)", "What percentage of their lives are cats sleeping??", "Black cats are considered bad luck in America. But in what country are they considered good luck?", "What is the oldest cat breed?", "There is an island where the number of cats to humans is 6 to 1. What country is this in?"];
+    var answerArray = [["Shrewdness", "Clowder", "Herd", "Gang"], ["15%","60%","90%","99%"], ["10", "50", "100", "500"], ["Shave their eyebrows","Mourn for 7 days","Wear sackcloth and ashes","Sacrifice 12 mice"], ["50%", "60%", "70%", "80%"], ["Austrailia","Nepal","Canada","China"], ["Persian", "Tabby", "Scottish Fold", "Egyptian Mau"], ["Philippines","Japan","Greece","Sweden"]];
+    var imageArray = ["<img class='center-block img-right' src='assets/images/clowder.jpg'>", "<img class='center-block img-right' src='assets/images/brain.jpg'>", "<img class='center-block img-right' src='assets/images/meow.jpg'>", "<img class='center-block img-right' src='assets/images/eyebrows.jpg'>", "<img class='center-block img-right' src='assets/images/sleeping.jpg'>", "<img class='center-block img-right' src='assets/images/blackcat.png'>", "<img class='center-block img-right' src='assets/images/egyptian.jpeg'>", "<img class='center-block img-right' src='assets/images/island.jpg'>"];
+    var correctAnswers = ["B. Clowder", "C. 90%", "C. 100", "A. Shave their eyebrows", "C. 70%", "A. Austrailia", "D. Egyptian Mau", "B. Japan"];
     var questionCounter = 0;
     var selecterAnswer;
     var theClock;
@@ -20,7 +20,7 @@
 $(document).ready(function() {
 
     function startScreen () {
-        startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' href='#' role='button'>Start</a></p>";
+        startScreen = "<p class='text-center main-button-container'><a class='btn btn-info btn-lg btn-block start-button' href='#' role='button'>Let's see how much!</a></p>";
         $(".mainArea").html(startScreen);
     };
 
@@ -62,21 +62,21 @@ $(document).ready(function() {
         unansweredTally++;
         gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 4000);  //  change to 4000 or other amount
+        setTimeout(wait, 3000); 
     }
     
     function generateWin() {
         correctTally++;
         gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + imageArray[questionCounter];
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 4000);  //  change to 4000 or other amount
+        setTimeout(wait, 3000);  //  change to 4000 or other amount
     }
     
     function generateLoss() {
         incorrectTally++;
         gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 4000); //  change to 4000 or other amount
+        setTimeout(wait, 3000); //  change to 4000 or other amount
     }
     
     function generateHTML() {
@@ -120,7 +120,7 @@ $(document).ready(function() {
         correctTally = 0;
         incorrectTally = 0;
         unansweredTally = 0;
-        counter = 30;
+        counter = 15;
         generateHTML();
         timerWrapper();
     }
